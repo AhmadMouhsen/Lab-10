@@ -3,7 +3,15 @@ import java.util.*;
 import java.io.*;
 
 public class HashTable {
-
+	
+	public class student{
+      	public String name;
+      	public int hashCode;
+      	public student(String name) {
+        	this.name = name;
+        	//Generate the hash code from and store here
+      	}
+	
 	Object[] table = new Object[500];
 	
 	boolean readFile(File filename) {
