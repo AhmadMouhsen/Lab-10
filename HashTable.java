@@ -28,6 +28,20 @@ public class HashTable {
 		return true;
 	}
 	
+	
+	public void Resize() {
+   
+    	}
+    
+    	public void Add()[
+        
+    	}
+    
+    	public Object Find(){
+       
+    	}
+   
+	
 	public static void main(String args[]) {
 		HashTable ht = new HashTable();
 		File f = new File("StudentsNames.txt");
