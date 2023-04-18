@@ -13,6 +13,7 @@ public class HashTable {
       	}
 	
 	Object[] table = new Object[500];
+	private int size = 0;
 	
 	boolean readFile(File filename) {
 		Scanner sc = new Scanner(System.in);
@@ -40,7 +41,13 @@ public class HashTable {
 	public void Resize() {
    
     	}
-    
+    /**
+
+	Adds a student object to the hash table
+	If the hash table is full, calls the Resize method to resize the table
+	Uses linear probing for collision resolution
+	@param student the student object to be added
+		 */
     	public void add(Student student) {
 			Resize();
 			int index = getIndex(student);
