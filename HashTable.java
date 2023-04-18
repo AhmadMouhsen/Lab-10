@@ -65,6 +65,22 @@ public class HashTable {
 				}
 			}
 		}
+		
+	/**
+
+	Calculates the hash value of the given student object and returns the index for the hash table
+	If the index is negative, adds the table length to the index
+	@param student the student object to calculate hash value for
+	@return the index for the hash table
+		 */
+		private int getIndex(Student student) {
+			int hashCode = student.hashCode();
+			int index = hashCode % table.length;
+			if (index < 0) {
+				index += table.length;
+			}
+			return index;
+		}
     
     	public Object Find(){
        
