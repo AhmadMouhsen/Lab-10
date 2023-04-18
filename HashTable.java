@@ -4,10 +4,10 @@ import java.io.*;
 
 public class HashTable {
 	
-	public class student{
+	public class Student{
       	public String name;
       	public int hashCode;
-      	public student(String name) {
+      	public Student(String name) {
         	this.name = name;
         	//Generate the hash code from and store here
       	}
@@ -41,9 +41,23 @@ public class HashTable {
    
     	}
     
-    	public void Add()[
-        
-    	}
+    	public void add(Student student) {
+			Resize();
+			int index = getIndex(student);
+			if (table[index] == null) {
+				table[index] = student;
+				size++;
+			} else {
+				// linear probing
+				while (table[index] != null && !table[index].equals(student)) {
+					index = (index + 1) % table.length;
+				}
+				if (table[index] == null) {
+					table[index] = student;
+					size++;
+				}
+			}
+		}
     
     	public Object Find(){
        
