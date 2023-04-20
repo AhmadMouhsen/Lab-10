@@ -1,19 +1,33 @@
-package lab10;
 import java.util.*;
 import java.io.*;
 
 public class HashTable {
 	
-	public class Student{
+	Object[] table = new Object[500];
+	private int size = 500;
+	
+	public static class Student{
+		
       	public String name;
       	public int hashCode;
+      	
       	public Student(String name) {
         	this.name = name;
-        	//Generate the hash code from and store here
+        	this.hashCode = hashCode();
       	}
-	
-	Object[] table = new Object[500];
-	private int size = 0;
+      	
+      	public int hashCode() {
+
+            char firstChar = this.name.charAt(0);
+            char secondChar = this.name.charAt(1);
+
+            int hash1 = (firstChar * 89) % 500;
+            int hash2 = (secondChar * 97) % 500;
+            int hashCode = (hash1 + hash2) % 500;
+
+            return hashCode;
+    	}
+	}
 	
 	boolean readFile(File filename) {
 		Scanner sc = new Scanner(System.in);
@@ -27,18 +41,14 @@ public class HashTable {
 		}
 		while (sc.hasNextLine()) {
 			key = sc.nextLine();
-			hash(key);
+			Student s = new Student(key);
+			add(s);
 		}
+		sc.close();
 		return true;
-	}
+	}	
 	
-	boolean hash(String key) {
-		//hashing code here
-		return true;
-	}
-	
-	
-	public void Resize() {
+	public void resize() {
    
     	}
     /**
@@ -49,7 +59,7 @@ public class HashTable {
 	@param student the student object to be added
 		 */
     	public void add(Student student) {
-			Resize();
+			resize();
 			int index = getIndex(student);
 			if (table[index] == null) {
 				table[index] = student;
@@ -83,7 +93,7 @@ public class HashTable {
 		}
     
     	public Object Find(){
-       
+    		return null;
     	}
    
 	
